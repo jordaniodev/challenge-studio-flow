@@ -55,7 +55,7 @@ export function Column({ id, step, label, count, description, children }: Column
       ref={setNodeRef}
       className={cn(
         'flex flex-col bg-secondary rounded-lg border border-border w-72 min-w-[16rem] max-w-xs h-full',
-        isOver && 'border-primary',
+        isOver && !disabled && 'border-primary',
         disabled && 'opacity-50 border-none cursor-not-allowed',
       )}
     >
