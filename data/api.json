@@ -39,135 +39,1005 @@
       }
     ],
     "scenes": [
-        {
-          "id": "1",
-          "step": 1,
-          "episode": "1",
-          "title": "Cena 1",
-          "columnId": "column-1",
-          "recordDate": "2025-01-01",
-          "recordLocation": "location-1",
-          "description": "A story about a man and his dog"
-        },
-        {
-          "id": "2",
-          "step": 2,
-          "episode": "1",
-          "title": "Cena 2",
-          "columnId": "column-2",
-          "recordDate": "2025-01-01",
-          "recordLocation": "location-1",
-          "description": "A story about a man and his dog"
-        },
-        {
-          "id": "3",
-          "step": 3,
-          "episode": "1",
-          "title": "Cena 3",
-          "columnId": "column-3",
-          "recordDate": "2025-01-01",
-          "recordLocation": "location-1",
-          "description": "A story about a man and his dog"
-        },
-        {
-          "id": "4",
-          "step": 2,
-          "episode": "1",
-          "title": "Cena 4",
-          "columnId": "column-4",
-          "recordDate": "2025-01-01",
-          "recordLocation": "location-1",
-          "description": "A story about a man and his dog"
-        },
-        {
-          "id": "5",
-          "step": 3,
-          "episode": "1",
-          "title": "Cena 5",
-          "columnId": "column-5",
-          "recordDate": "2025-01-01",
-          "recordLocation": "location-1",
-          "description": "A story about a man and his dog"
-        },
-        {
-          "id": "6",
-          "step": 2,
-          "episode": "1",
-          "title": "Cena 6",
-          "columnId": "column-6",
-          "recordDate": "2025-01-01",
-          "recordLocation": "location-1",
-          "description": "A story about a man and his dog"
-        },
-        {
-          "id": "7",
-          "step": 3,
-          "episode": "1",
-          "title": "Cena 7",
-          "columnId": "column-7",
-          "recordDate": "2025-01-01",
-          "recordLocation": "location-1",
-          "description": "A story about a man and his dog"
-        },
-        {
-          "id": "8",
-          "step": 1,
-          "episode": "1",
-          "title": "Cena 8",
-          "columnId": "column-8",
-          "recordDate": "2025-01-01",
-          "recordLocation": "location-1",
-          "description": "A story about a man and his dog"
-        },
-        {
-          "id": "9",
-          "step": 4,
-          "episode": "1",
-          "title": "Cena 9",
-          "columnId": "column-9",
-          "recordDate": "2025-01-01",
-          "recordLocation": "location-1",
-          "description": "A story about a man and his dog"
-        },
-        {
-          "id": "10",
-          "step": 5,
-          "episode": "1",
-          "title": "Cena 10",
-          "columnId": "column-10",
-          "recordDate": "2025-01-01",
-          "recordLocation": "location-1",
-          "description": "A story about a man and his dog"
-        },
-        {
-          "id": "11",
-          "step": 5,
-          "episode": "1",
-          "title": "Cena 11",
-          "columnId": "column-11",
-          "recordDate": "2025-01-01",
-          "recordLocation": "location-1",
-          "description": "A story about a man and his dog"
-        },
-        {
-          "id": "12",
-          "step": 3,
-          "episode": "1",
-          "title": "Cena 12",
-          "columnId": "column-12",
-          "recordDate": "2025-01-01",
-          "recordLocation": "location-1",
-          "description": "A story about a man and his dog"
-        },
-        {
-          "id": "13",
-          "step": 4,
-          "episode": "1",
-          "title": "Cena 13",
-          "columnId": "column-13",
-          "recordDate": "2025-01-01",
-          "recordLocation": "location-1",
-          "description": "A story about a man and his dog"
-        }
+      {
+        "id": "1",
+        "step": 1,
+        "episode": "1",
+        "title": "A Chegada",
+        "columnId": "column-1",
+        "recordDate": "2024-03-15",
+        "recordLocation": "Estúdio Central",
+        "description": "João chega à cidade em busca de uma nova vida"
+      },
+      {
+        "id": "2",
+        "step": 2,
+        "episode": "1",
+        "title": "O Encontro",
+        "columnId": "column-2",
+        "recordDate": "2024-03-20",
+        "recordLocation": "Praça Central",
+        "description": "João conhece Maria na praça da cidade"
+      },
+      {
+        "id": "3",
+        "step": 3,
+        "episode": "1",
+        "title": "A Conversa",
+        "columnId": "column-3",
+        "recordDate": "2024-03-25",
+        "recordLocation": "Café da Esquina",
+        "description": "João e Maria conversam sobre seus sonhos"
+      },
+      {
+        "id": "4",
+        "step": 4,
+        "episode": "1",
+        "title": "O Desafio",
+        "columnId": "column-4",
+        "recordDate": "2024-04-01",
+        "recordLocation": "Escritório",
+        "description": "João enfrenta seu primeiro desafio no trabalho"
+      },
+      {
+        "id": "5",
+        "step": 5,
+        "episode": "1",
+        "title": "A Vitória",
+        "columnId": "column-5",
+        "recordDate": "2024-04-05",
+        "recordLocation": "Auditório",
+        "description": "João celebra sua primeira conquista"
+      },
+      {
+        "id": "6",
+        "step": 1,
+        "episode": "2",
+        "title": "Novos Horizontes",
+        "columnId": "column-6",
+        "recordDate": "2024-04-10",
+        "recordLocation": "Estúdio Central",
+        "description": "Maria apresenta João a novos amigos"
+      },
+      {
+        "id": "7",
+        "step": 2,
+        "episode": "2",
+        "title": "O Projeto",
+        "columnId": "column-7",
+        "recordDate": "2024-04-15",
+        "recordLocation": "Sala de Reuniões",
+        "description": "João e Maria começam um projeto juntos"
+      },
+      {
+        "id": "8",
+        "step": 3,
+        "episode": "2",
+        "title": "Os Obstáculos",
+        "columnId": "column-8",
+        "recordDate": "2024-04-20",
+        "recordLocation": "Escritório",
+        "description": "O casal enfrenta os primeiros obstáculos"
+      },
+      {
+        "id": "9",
+        "step": 4,
+        "episode": "2",
+        "title": "A Superação",
+        "columnId": "column-9",
+        "recordDate": "2024-04-25",
+        "recordLocation": "Estúdio Central",
+        "description": "João e Maria superam as dificuldades"
+      },
+      {
+        "id": "10",
+        "step": 5,
+        "episode": "2",
+        "title": "O Sucesso",
+        "columnId": "column-10",
+        "recordDate": "2024-04-30",
+        "recordLocation": "Auditório",
+        "description": "O projeto é um sucesso"
+      },
+      {
+        "id": "11",
+        "step": 1,
+        "episode": "3",
+        "title": "A Mudança",
+        "columnId": "column-11",
+        "recordDate": "2024-05-05",
+        "recordLocation": "Estúdio Central",
+        "description": "João decide mudar de cidade"
+      },
+      {
+        "id": "12",
+        "step": 2,
+        "episode": "3",
+        "title": "A Despedida",
+        "columnId": "column-12",
+        "recordDate": "2024-05-10",
+        "recordLocation": "Aeroporto",
+        "description": "Maria se despede de João"
+      },
+      {
+        "id": "13",
+        "step": 3,
+        "episode": "3",
+        "title": "A Saudade",
+        "columnId": "column-13",
+        "recordDate": "2024-05-15",
+        "recordLocation": "Apartamento",
+        "description": "Maria sente saudade de João"
+      },
+      {
+        "id": "14",
+        "step": 4,
+        "episode": "3",
+        "title": "A Decisão",
+        "columnId": "column-14",
+        "recordDate": "2024-05-20",
+        "recordLocation": "Escritório",
+        "description": "Maria decide ir atrás de João"
+      },
+      {
+        "id": "15",
+        "step": 5,
+        "episode": "3",
+        "title": "O Reencontro",
+        "columnId": "column-15",
+        "recordDate": "2024-05-25",
+        "recordLocation": "Praça",
+        "description": "João e Maria se reencontram"
+      },
+      {
+        "id": "16",
+        "step": 1,
+        "episode": "4",
+        "title": "Novos Planos",
+        "columnId": "column-16",
+        "recordDate": "2024-06-01",
+        "recordLocation": "Café",
+        "description": "O casal faz novos planos juntos"
+      },
+      {
+        "id": "17",
+        "step": 2,
+        "episode": "4",
+        "title": "A Busca",
+        "columnId": "column-17",
+        "recordDate": "2024-06-05",
+        "recordLocation": "Centro Comercial",
+        "description": "Procurando um novo apartamento"
+      },
+      {
+        "id": "18",
+        "step": 3,
+        "episode": "4",
+        "title": "A Escolha",
+        "columnId": "column-18",
+        "recordDate": "2024-06-10",
+        "recordLocation": "Apartamento",
+        "description": "Encontrando o lugar perfeito"
+      },
+      {
+        "id": "19",
+        "step": 4,
+        "episode": "4",
+        "title": "A Mudança",
+        "columnId": "column-19",
+        "recordDate": "2024-06-15",
+        "recordLocation": "Novo Apartamento",
+        "description": "Instalando-se no novo lar"
+      },
+      {
+        "id": "20",
+        "step": 5,
+        "episode": "4",
+        "title": "A Festa",
+        "columnId": "column-20",
+        "recordDate": "2024-06-20",
+        "recordLocation": "Apartamento",
+        "description": "Celebrando a nova casa"
+      },
+      {
+        "id": "21",
+        "step": 1,
+        "episode": "5",
+        "title": "O Trabalho",
+        "columnId": "column-21",
+        "recordDate": "2024-06-25",
+        "recordLocation": "Escritório",
+        "description": "João começa um novo trabalho"
+      },
+      {
+        "id": "22",
+        "step": 2,
+        "episode": "5",
+        "title": "A Adaptação",
+        "columnId": "column-22",
+        "recordDate": "2024-06-30",
+        "recordLocation": "Escritório",
+        "description": "Adaptando-se ao novo ambiente"
+      },
+      {
+        "id": "23",
+        "step": 3,
+        "episode": "5",
+        "title": "Os Colegas",
+        "columnId": "column-23",
+        "recordDate": "2024-07-05",
+        "recordLocation": "Sala de Reuniões",
+        "description": "Conhecendo os novos colegas"
+      },
+      {
+        "id": "24",
+        "step": 4,
+        "episode": "5",
+        "title": "O Projeto",
+        "columnId": "column-24",
+        "recordDate": "2024-07-10",
+        "recordLocation": "Escritório",
+        "description": "Iniciando um novo projeto"
+      },
+      {
+        "id": "25",
+        "step": 5,
+        "episode": "5",
+        "title": "O Sucesso",
+        "columnId": "column-25",
+        "recordDate": "2024-07-15",
+        "recordLocation": "Auditório",
+        "description": "Projeto concluído com sucesso"
+      },
+      {
+        "id": "26",
+        "step": 1,
+        "episode": "6",
+        "title": "A Promoção",
+        "columnId": "column-26",
+        "recordDate": "2024-07-20",
+        "recordLocation": "Escritório",
+        "description": "João recebe uma promoção"
+      },
+      {
+        "id": "27",
+        "step": 2,
+        "episode": "6",
+        "title": "A Celebração",
+        "columnId": "column-27",
+        "recordDate": "2024-07-25",
+        "recordLocation": "Restaurante",
+        "description": "Celebrando a promoção"
+      },
+      {
+        "id": "28",
+        "step": 3,
+        "episode": "6",
+        "title": "Os Novos Desafios",
+        "columnId": "column-28",
+        "recordDate": "2024-07-30",
+        "recordLocation": "Escritório",
+        "description": "Enfrentando novos desafios"
+      },
+      {
+        "id": "29",
+        "step": 4,
+        "episode": "6",
+        "title": "A Equipe",
+        "columnId": "column-29",
+        "recordDate": "2024-08-05",
+        "recordLocation": "Sala de Reuniões",
+        "description": "Formando uma nova equipe"
+      },
+      {
+        "id": "30",
+        "step": 5,
+        "episode": "6",
+        "title": "O Resultado",
+        "columnId": "column-30",
+        "recordDate": "2024-08-10",
+        "recordLocation": "Auditório",
+        "description": "Apresentando os resultados"
+      },
+      {
+        "id": "31",
+        "step": 1,
+        "episode": "7",
+        "title": "A Viagem",
+        "columnId": "column-31",
+        "recordDate": "2024-08-15",
+        "recordLocation": "Aeroporto",
+        "description": "Planejando uma viagem de negócios"
+      },
+      {
+        "id": "32",
+        "step": 2,
+        "episode": "7",
+        "title": "O Encontro",
+        "columnId": "column-32",
+        "recordDate": "2024-08-20",
+        "recordLocation": "Hotel",
+        "description": "Encontrando parceiros de negócios"
+      },
+      {
+        "id": "33",
+        "step": 3,
+        "episode": "7",
+        "title": "A Negociação",
+        "columnId": "column-33",
+        "recordDate": "2024-08-25",
+        "recordLocation": "Sala de Reuniões",
+        "description": "Fechando um grande negócio"
+      },
+      {
+        "id": "34",
+        "step": 4,
+        "episode": "7",
+        "title": "O Contrato",
+        "columnId": "column-34",
+        "recordDate": "2024-08-30",
+        "recordLocation": "Escritório",
+        "description": "Assinando o contrato"
+      },
+      {
+        "id": "35",
+        "step": 5,
+        "episode": "7",
+        "title": "O Retorno",
+        "columnId": "column-35",
+        "recordDate": "2024-09-05",
+        "recordLocation": "Aeroporto",
+        "description": "Retornando com sucesso"
+      },
+      {
+        "id": "36",
+        "step": 1,
+        "episode": "8",
+        "title": "A Surpresa",
+        "columnId": "column-36",
+        "recordDate": "2024-09-10",
+        "recordLocation": "Apartamento",
+        "description": "Maria prepara uma surpresa"
+      },
+      {
+        "id": "37",
+        "step": 2,
+        "episode": "8",
+        "title": "A Decisão",
+        "columnId": "column-37",
+        "recordDate": "2024-09-15",
+        "recordLocation": "Restaurante",
+        "description": "Tomando uma decisão importante"
+      },
+      {
+        "id": "38",
+        "step": 3,
+        "episode": "8",
+        "title": "O Momento",
+        "columnId": "column-38",
+        "recordDate": "2024-09-20",
+        "recordLocation": "Praça",
+        "description": "Um momento especial"
+      },
+      {
+        "id": "39",
+        "step": 4,
+        "episode": "8",
+        "title": "A Celebração",
+        "columnId": "column-39",
+        "recordDate": "2024-09-25",
+        "recordLocation": "Restaurante",
+        "description": "Celebrando a decisão"
+      },
+      {
+        "id": "40",
+        "step": 5,
+        "episode": "8",
+        "title": "O Futuro",
+        "columnId": "column-40",
+        "recordDate": "2024-09-30",
+        "recordLocation": "Apartamento",
+        "description": "Planejando o futuro"
+      },
+      {
+        "id": "41",
+        "step": 1,
+        "episode": "9",
+        "title": "A Mudança",
+        "columnId": "column-41",
+        "recordDate": "2024-10-05",
+        "recordLocation": "Escritório",
+        "description": "Uma mudança na empresa"
+      },
+      {
+        "id": "42",
+        "step": 2,
+        "episode": "9",
+        "title": "A Adaptação",
+        "columnId": "column-42",
+        "recordDate": "2024-10-10",
+        "recordLocation": "Escritório",
+        "description": "Adaptando-se às mudanças"
+      },
+      {
+        "id": "43",
+        "step": 3,
+        "episode": "9",
+        "title": "Os Desafios",
+        "columnId": "column-43",
+        "recordDate": "2024-10-15",
+        "recordLocation": "Sala de Reuniões",
+        "description": "Enfrentando novos desafios"
+      },
+      {
+        "id": "44",
+        "step": 4,
+        "episode": "9",
+        "title": "A Superação",
+        "columnId": "column-44",
+        "recordDate": "2024-10-20",
+        "recordLocation": "Escritório",
+        "description": "Superando as dificuldades"
+      },
+      {
+        "id": "45",
+        "step": 5,
+        "episode": "9",
+        "title": "O Sucesso",
+        "columnId": "column-45",
+        "recordDate": "2024-10-25",
+        "recordLocation": "Auditório",
+        "description": "Celebrando o sucesso"
+      },
+      {
+        "id": "46",
+        "step": 1,
+        "episode": "10",
+        "title": "O Projeto",
+        "columnId": "column-46",
+        "recordDate": "2024-10-30",
+        "recordLocation": "Escritório",
+        "description": "Iniciando um novo projeto"
+      },
+      {
+        "id": "47",
+        "step": 2,
+        "episode": "10",
+        "title": "A Equipe",
+        "columnId": "column-47",
+        "recordDate": "2024-11-05",
+        "recordLocation": "Sala de Reuniões",
+        "description": "Formando a equipe"
+      },
+      {
+        "id": "48",
+        "step": 3,
+        "episode": "10",
+        "title": "O Desenvolvimento",
+        "columnId": "column-48",
+        "recordDate": "2024-11-10",
+        "recordLocation": "Escritório",
+        "description": "Desenvolvendo o projeto"
+      },
+      {
+        "id": "49",
+        "step": 4,
+        "episode": "10",
+        "title": "Os Ajustes",
+        "columnId": "column-49",
+        "recordDate": "2024-11-15",
+        "recordLocation": "Sala de Reuniões",
+        "description": "Fazendo ajustes finais"
+      },
+      {
+        "id": "50",
+        "step": 5,
+        "episode": "10",
+        "title": "A Conclusão",
+        "columnId": "column-50",
+        "recordDate": "2024-11-20",
+        "recordLocation": "Auditório",
+        "description": "Concluindo o projeto"
+      },
+      {
+        "id": "51",
+        "step": 1,
+        "episode": "11",
+        "title": "A Viagem",
+        "columnId": "column-51",
+        "recordDate": "2024-11-25",
+        "recordLocation": "Aeroporto",
+        "description": "Planejando uma viagem"
+      },
+      {
+        "id": "52",
+        "step": 2,
+        "episode": "11",
+        "title": "O Destino",
+        "columnId": "column-52",
+        "recordDate": "2024-11-30",
+        "recordLocation": "Hotel",
+        "description": "Chegando ao destino"
+      },
+      {
+        "id": "53",
+        "step": 3,
+        "episode": "11",
+        "title": "A Exploração",
+        "columnId": "column-53",
+        "recordDate": "2024-12-05",
+        "recordLocation": "Cidade",
+        "description": "Explorando a cidade"
+      },
+      {
+        "id": "54",
+        "step": 4,
+        "episode": "11",
+        "title": "As Descobertas",
+        "columnId": "column-54",
+        "recordDate": "2024-12-10",
+        "recordLocation": "Museu",
+        "description": "Fazendo descobertas"
+      },
+      {
+        "id": "55",
+        "step": 5,
+        "episode": "11",
+        "title": "O Retorno",
+        "columnId": "column-55",
+        "recordDate": "2024-12-15",
+        "recordLocation": "Aeroporto",
+        "description": "Retornando para casa"
+      },
+      {
+        "id": "56",
+        "step": 1,
+        "episode": "12",
+        "title": "A Festa",
+        "columnId": "column-56",
+        "recordDate": "2024-12-20",
+        "recordLocation": "Apartamento",
+        "description": "Preparando uma festa"
+      },
+      {
+        "id": "57",
+        "step": 2,
+        "episode": "12",
+        "title": "Os Convidados",
+        "columnId": "column-57",
+        "recordDate": "2024-12-25",
+        "recordLocation": "Apartamento",
+        "description": "Recebendo os convidados"
+      },
+      {
+        "id": "58",
+        "step": 3,
+        "episode": "12",
+        "title": "A Celebração",
+        "columnId": "column-58",
+        "recordDate": "2024-12-30",
+        "recordLocation": "Apartamento",
+        "description": "Celebrando juntos"
+      },
+      {
+        "id": "59",
+        "step": 4,
+        "episode": "12",
+        "title": "Os Momentos",
+        "columnId": "column-59",
+        "recordDate": "2025-01-05",
+        "recordLocation": "Apartamento",
+        "description": "Compartilhando momentos"
+      },
+      {
+        "id": "60",
+        "step": 5,
+        "episode": "12",
+        "title": "A Despedida",
+        "columnId": "column-60",
+        "recordDate": "2025-01-10",
+        "recordLocation": "Apartamento",
+        "description": "Despedindo-se dos amigos"
+      },
+      {
+        "id": "61",
+        "step": 1,
+        "episode": "13",
+        "title": "O Ano Novo",
+        "columnId": "column-61",
+        "recordDate": "2025-01-15",
+        "recordLocation": "Apartamento",
+        "description": "Planejando o ano novo"
+      },
+      {
+        "id": "62",
+        "step": 2,
+        "episode": "13",
+        "title": "As Metas",
+        "columnId": "column-62",
+        "recordDate": "2025-01-20",
+        "recordLocation": "Escritório",
+        "description": "Definindo metas"
+      },
+      {
+        "id": "63",
+        "step": 3,
+        "episode": "13",
+        "title": "Os Objetivos",
+        "columnId": "column-63",
+        "recordDate": "2025-01-25",
+        "recordLocation": "Sala de Reuniões",
+        "description": "Estabelecendo objetivos"
+      },
+      {
+        "id": "64",
+        "step": 4,
+        "episode": "13",
+        "title": "O Plano",
+        "columnId": "column-64",
+        "recordDate": "2025-01-30",
+        "recordLocation": "Escritório",
+        "description": "Criando um plano"
+      },
+      {
+        "id": "65",
+        "step": 5,
+        "episode": "13",
+        "title": "A Execução",
+        "columnId": "column-65",
+        "recordDate": "2025-02-05",
+        "recordLocation": "Escritório",
+        "description": "Executando o plano"
+      },
+      {
+        "id": "66",
+        "step": 1,
+        "episode": "14",
+        "title": "O Desafio",
+        "columnId": "column-66",
+        "recordDate": "2025-02-10",
+        "recordLocation": "Escritório",
+        "description": "Enfrentando um desafio"
+      },
+      {
+        "id": "67",
+        "step": 2,
+        "episode": "14",
+        "title": "A Preparação",
+        "columnId": "column-67",
+        "recordDate": "2025-02-15",
+        "recordLocation": "Sala de Treinamento",
+        "description": "Preparando-se para o desafio"
+      },
+      {
+        "id": "68",
+        "step": 3,
+        "episode": "14",
+        "title": "O Enfrentamento",
+        "columnId": "column-68",
+        "recordDate": "2025-02-20",
+        "recordLocation": "Auditório",
+        "description": "Enfrentando o desafio"
+      },
+      {
+        "id": "69",
+        "step": 4,
+        "episode": "14",
+        "title": "A Superação",
+        "columnId": "column-69",
+        "recordDate": "2025-02-25",
+        "recordLocation": "Escritório",
+        "description": "Superando o desafio"
+      },
+      {
+        "id": "70",
+        "step": 5,
+        "episode": "14",
+        "title": "A Vitória",
+        "columnId": "column-70",
+        "recordDate": "2025-03-01",
+        "recordLocation": "Auditório",
+        "description": "Celebrando a vitória"
+      },
+      {
+        "id": "71",
+        "step": 1,
+        "episode": "15",
+        "title": "A Mudança",
+        "columnId": "column-71",
+        "recordDate": "2025-03-05",
+        "recordLocation": "Escritório",
+        "description": "Uma mudança na empresa"
+      },
+      {
+        "id": "72",
+        "step": 2,
+        "episode": "15",
+        "title": "A Adaptação",
+        "columnId": "column-72",
+        "recordDate": "2025-03-10",
+        "recordLocation": "Escritório",
+        "description": "Adaptando-se à mudança"
+      },
+      {
+        "id": "73",
+        "step": 3,
+        "episode": "15",
+        "title": "Os Novos Caminhos",
+        "columnId": "column-73",
+        "recordDate": "2025-03-15",
+        "recordLocation": "Sala de Reuniões",
+        "description": "Explorando novos caminhos"
+      },
+      {
+        "id": "74",
+        "step": 4,
+        "episode": "15",
+        "title": "As Descobertas",
+        "columnId": "column-74",
+        "recordDate": "2025-03-20",
+        "recordLocation": "Escritório",
+        "description": "Fazendo descobertas"
+      },
+      {
+        "id": "75",
+        "step": 5,
+        "episode": "15",
+        "title": "O Futuro",
+        "columnId": "column-75",
+        "recordDate": "2025-03-25",
+        "recordLocation": "Auditório",
+        "description": "Planejando o futuro"
+      },
+      {
+        "id": "76",
+        "step": 1,
+        "episode": "16",
+        "title": "O Projeto",
+        "columnId": "column-76",
+        "recordDate": "2025-03-30",
+        "recordLocation": "Escritório",
+        "description": "Iniciando um novo projeto"
+      },
+      {
+        "id": "77",
+        "step": 2,
+        "episode": "16",
+        "title": "A Equipe",
+        "columnId": "column-77",
+        "recordDate": "2025-04-05",
+        "recordLocation": "Sala de Reuniões",
+        "description": "Formando a equipe"
+      },
+      {
+        "id": "78",
+        "step": 3,
+        "episode": "16",
+        "title": "O Desenvolvimento",
+        "columnId": "column-78",
+        "recordDate": "2025-04-10",
+        "recordLocation": "Escritório",
+        "description": "Desenvolvendo o projeto"
+      },
+      {
+        "id": "79",
+        "step": 4,
+        "episode": "16",
+        "title": "Os Ajustes",
+        "columnId": "column-79",
+        "recordDate": "2025-04-15",
+        "recordLocation": "Sala de Reuniões",
+        "description": "Fazendo ajustes"
+      },
+      {
+        "id": "80",
+        "step": 5,
+        "episode": "16",
+        "title": "A Conclusão",
+        "columnId": "column-80",
+        "recordDate": "2025-04-20",
+        "recordLocation": "Auditório",
+        "description": "Concluindo o projeto"
+      },
+      {
+        "id": "81",
+        "step": 1,
+        "episode": "17",
+        "title": "A Viagem",
+        "columnId": "column-81",
+        "recordDate": "2025-04-25",
+        "recordLocation": "Aeroporto",
+        "description": "Planejando uma viagem"
+      },
+      {
+        "id": "82",
+        "step": 2,
+        "episode": "17",
+        "title": "O Destino",
+        "columnId": "column-82",
+        "recordDate": "2025-04-30",
+        "recordLocation": "Hotel",
+        "description": "Chegando ao destino"
+      },
+      {
+        "id": "83",
+        "step": 3,
+        "episode": "17",
+        "title": "A Exploração",
+        "columnId": "column-83",
+        "recordDate": "2025-05-05",
+        "recordLocation": "Cidade",
+        "description": "Explorando a cidade"
+      },
+      {
+        "id": "84",
+        "step": 4,
+        "episode": "17",
+        "title": "As Descobertas",
+        "columnId": "column-84",
+        "recordDate": "2025-05-10",
+        "recordLocation": "Museu",
+        "description": "Fazendo descobertas"
+      },
+      {
+        "id": "85",
+        "step": 5,
+        "episode": "17",
+        "title": "O Retorno",
+        "columnId": "column-85",
+        "recordDate": "2025-05-15",
+        "recordLocation": "Aeroporto",
+        "description": "Retornando para casa"
+      },
+      {
+        "id": "86",
+        "step": 1,
+        "episode": "18",
+        "title": "A Festa",
+        "columnId": "column-86",
+        "recordDate": "2025-05-20",
+        "recordLocation": "Apartamento",
+        "description": "Preparando uma festa"
+      },
+      {
+        "id": "87",
+        "step": 2,
+        "episode": "18",
+        "title": "Os Convidados",
+        "columnId": "column-87",
+        "recordDate": "2025-05-25",
+        "recordLocation": "Apartamento",
+        "description": "Recebendo os convidados"
+      },
+      {
+        "id": "88",
+        "step": 3,
+        "episode": "18",
+        "title": "A Celebração",
+        "columnId": "column-88",
+        "recordDate": "2025-05-30",
+        "recordLocation": "Apartamento",
+        "description": "Celebrando juntos"
+      },
+      {
+        "id": "89",
+        "step": 4,
+        "episode": "18",
+        "title": "Os Momentos",
+        "columnId": "column-89",
+        "recordDate": "2025-06-05",
+        "recordLocation": "Apartamento",
+        "description": "Compartilhando momentos"
+      },
+      {
+        "id": "90",
+        "step": 5,
+        "episode": "18",
+        "title": "A Despedida",
+        "columnId": "column-90",
+        "recordDate": "2025-06-10",
+        "recordLocation": "Apartamento",
+        "description": "Despedindo-se dos amigos"
+      },
+      {
+        "id": "91",
+        "step": 1,
+        "episode": "19",
+        "title": "O Ano Novo",
+        "columnId": "column-91",
+        "recordDate": "2025-06-15",
+        "recordLocation": "Apartamento",
+        "description": "Planejando o ano novo"
+      },
+      {
+        "id": "92",
+        "step": 2,
+        "episode": "19",
+        "title": "As Metas",
+        "columnId": "column-92",
+        "recordDate": "2025-06-20",
+        "recordLocation": "Escritório",
+        "description": "Definindo metas"
+      },
+      {
+        "id": "93",
+        "step": 3,
+        "episode": "19",
+        "title": "Os Objetivos",
+        "columnId": "column-93",
+        "recordDate": "2025-06-25",
+        "recordLocation": "Sala de Reuniões",
+        "description": "Estabelecendo objetivos"
+      },
+      {
+        "id": "94",
+        "step": 4,
+        "episode": "19",
+        "title": "O Plano",
+        "columnId": "column-94",
+        "recordDate": "2025-06-30",
+        "recordLocation": "Escritório",
+        "description": "Criando um plano"
+      },
+      {
+        "id": "95",
+        "step": 5,
+        "episode": "19",
+        "title": "A Execução",
+        "columnId": "column-95",
+        "recordDate": "2025-07-05",
+        "recordLocation": "Escritório",
+        "description": "Executando o plano"
+      },
+      {
+        "id": "96",
+        "step": 1,
+        "episode": "20",
+        "title": "O Desafio",
+        "columnId": "column-96",
+        "recordDate": "2025-07-10",
+        "recordLocation": "Escritório",
+        "description": "Enfrentando um desafio"
+      },
+      {
+        "id": "97",
+        "step": 2,
+        "episode": "20",
+        "title": "A Preparação",
+        "columnId": "column-97",
+        "recordDate": "2025-07-15",
+        "recordLocation": "Sala de Treinamento",
+        "description": "Preparando-se para o desafio"
+      },
+      {
+        "id": "98",
+        "step": 3,
+        "episode": "20",
+        "title": "O Enfrentamento",
+        "columnId": "column-98",
+        "recordDate": "2025-07-20",
+        "recordLocation": "Auditório",
+        "description": "Enfrentando o desafio"
+      },
+      {
+        "id": "99",
+        "step": 4,
+        "episode": "20",
+        "title": "A Superação",
+        "columnId": "column-99",
+        "recordDate": "2025-07-25",
+        "recordLocation": "Escritório",
+        "description": "Superando o desafio"
+      },
+      {
+        "id": "100",
+        "step": 5,
+        "episode": "20",
+        "title": "A Vitória",
+        "columnId": "column-100",
+        "recordDate": "2025-07-30",
+        "recordLocation": "Auditório",
+        "description": "Celebrando a vitória"
+      }
     ]
 }
