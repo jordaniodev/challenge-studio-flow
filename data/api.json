@@ -1,14 +1,9 @@
 {
     "productions": [
         {
-            "id": "1",
-            "name": "Renascer",
-            "description": "A story about a man and his dog"
-        },
-        {
-            "id": "2",
-            "name": "Garota do Momento",
-            "description": "A story about a man and his dog"
+          "id": "1",
+          "name": "Renascer",
+          "description": "A story about a man and his dog"
         }
     ],
     "flows": [
@@ -30,6 +25,13 @@
           "description": "A story about a man and his dog",
           "step": 1,
           "columnId": "column-1"
+        },
+        {
+          "id": "2",
+          "title": "Cena 2",
+          "description": "A story about a man and his dog",
+          "step": 2,
+          "columnId": "column-2"
         }
     ]
 }
