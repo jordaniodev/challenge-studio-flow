@@ -1,0 +1,35 @@
+{
+    "productions": [
+        {
+            "id": "1",
+            "name": "Renascer",
+            "description": "A story about a man and his dog"
+        },
+        {
+            "id": "2",
+            "name": "Garota do Momento",
+            "description": "A story about a man and his dog"
+        }
+    ],
+    "flows": [
+      {
+        "id": "1",
+        "label": "Flow 1",
+        "description": "Flow 1 description"
+      },
+      {
+        "id": "2",
+        "label": "Flow 2",
+        "description": "Flow 2 description"
+      }
+    ],
+    "scenes": [
+        {
+          "id": "1",
+          "title": "Cena 1",
+          "description": "A story about a man and his dog",
+          "step": 1,
+          "columnId": "column-1"
+        }
+    ]
+}
