@@ -16,7 +16,7 @@ interface ColumnProps {
 export function Column({ id, step, label, count, description, children }: ColumnProps) {
   const [disabled, setDisabled] = useState(false);
 
-  const { setNodeRef, isOver, over, active } = useDroppable({
+  const { setNodeRef, isOver, active } = useDroppable({
     id,
     data: {
       step,
@@ -25,11 +25,6 @@ export function Column({ id, step, label, count, description, children }: Column
   });
 
   useEffect(() => {
-    if (!over) {
-      setDisabled(false);
-      return;
-    }
-
     if (!active) {
       setDisabled(false);
       return;
@@ -48,7 +43,7 @@ export function Column({ id, step, label, count, description, children }: Column
     } else {
       setDisabled(false);
     }
-  }, [over, active, setDisabled, step]);
+  }, [active, setDisabled, step]);
 
   return (
     <div
