@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Studio from '../pages/Studio';
 import Timeline from '../pages/Timeline';
+import { Header } from '../components/header';
 
 const router = createBrowserRouter([
   {
@@ -14,7 +15,12 @@ const router = createBrowserRouter([
 ]);
 
 const Routes = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <div className="h-screen w-screen bg-background">
+      <Header />
+      <RouterProvider router={router} />
+    </div>
+  );
 };
 
 export default Routes;
