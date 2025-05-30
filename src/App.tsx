@@ -1,8 +1,13 @@
+import { ProductionProvider } from './contexts/production';
 import Routes from './routes';
 import './styles/global.css';
 
 function App() {
-  return <Routes />;
+  return (
+    <ProductionProvider>
+      <Routes />
+    </ProductionProvider>
+  );
 }
 
-export default App
+export default App;
