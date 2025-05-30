@@ -1,5 +1,10 @@
+import { useState } from 'react';
+
 import { useDraggable } from '@dnd-kit/core';
 import { CSS } from '@dnd-kit/utilities';
+
+import { type Scene as SceneType } from '../../reducers/scenes';
+import { Modal } from '../modal';
 
 interface SceneProps {
   id: string;
@@ -7,9 +12,25 @@ interface SceneProps {
   title: string;
   columnId: string;
   description: string;
+  episode: string;
+  recordDate: string;
+  recordLocation: string;
+  onUpdate?: (scene: SceneType) => void;
 }
 
-const Scene = ({ id, title, description, columnId, step }: SceneProps) => {
+const Scene = ({
+  id,
+  title,
+  description,
+  columnId,
+  step,
+  episode,
+  recordDate,
+  recordLocation,
+  onUpdate,
+}: SceneProps) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const { attributes, listeners, setNodeRef, transform, active } = useDraggable({
     id,
     attributes: { role: 'button' },
@@ -18,26 +39,64 @@ const Scene = ({ id, title, description, columnId, step }: SceneProps) => {
       step,
       title,
       description,
+      episode,
+      recordDate,
+      recordLocation,
     },
-    disabled: false,
   });
 
+  const sceneDetails: SceneType = {
+    id,
+    title,
+    description,
+    step,
+    episode,
+    columnId,
+    recordDate,
+    recordLocation,
+  };
+
+  const handleUpdate = (updatedScene: SceneType) => {
+    if (onUpdate) {
+      onUpdate(updatedScene);
+    }
+  };
+
   if (active?.id === id) {
-    return null;
+    return (
+      <div
+        ref={setNodeRef}
+        {...listeners}
+        {...attributes}
+        className='flex flex-col gap-2 p-2 cursor-pointer bg-primary opacity-50 text-accent rounded-lg border border-border'
+      >
+        <div className='flex flex-col gap-1'>
+          <span className='text-sm font-medium'>{title}</span>
+          <span className='text-xs'>{description}</span>
+        </div>
+      </div>
+    );
   }
 
   return (
-    <div
-      ref={setNodeRef}
-      style={{
-        transform: CSS.Translate.toString(transform),
-      }}
-      {...listeners}
-      {...attributes}
-      className='flex flex-col gap-2 p-2 cursor-pointer bg-primary text-accent rounded-lg border border-border'
-    >
-      <div className='flex items-center gap-2'>
-        <div className='w-10 h-10 bg-primary rounded-full'></div>
+    <div>
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        scene={sceneDetails}
+        onUpdate={handleUpdate}
+      />
+
+      <div
+        ref={setNodeRef}
+        style={{
+          transform: CSS.Translate.toString(transform),
+        }}
+        {...listeners}
+        {...attributes}
+        onClick={() => setIsModalOpen(true)}
+        className='flex flex-col gap-2 p-2 cursor-pointer bg-primary text-accent rounded-lg border border-border'
+      >
         <div className='flex flex-col gap-1'>
           <span className='text-sm font-medium'>{title}</span>
           <span className='text-xs'>{description}</span>

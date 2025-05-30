@@ -4,6 +4,9 @@ type Scene = {
   description: string;
   step: number;
   columnId: string;
+  episode: string;
+  recordDate: string;
+  recordLocation: string;
 };
 
 type State = {
@@ -22,7 +25,8 @@ type Action =
   | { type: 'SET_SCENES'; payload: Scene[] }
   | { type: 'MOVE_SCENE'; payload: { id: string; toStep: number } }
   | { type: 'SET_LOADING'; payload: boolean }
-  | { type: 'SET_ERROR'; payload: string | null };
+  | { type: 'SET_ERROR'; payload: string | null }
+  | { type: 'UPDATE_SCENE'; payload: Scene };
 
 const sceneReducer = (state: State, action: Action): State => {
   switch (action.type) {
@@ -37,6 +41,14 @@ const sceneReducer = (state: State, action: Action): State => {
         ),
       };
 
+    case 'UPDATE_SCENE':
+      return {
+        ...state,
+        scenes: state.scenes.map((scene) =>
+          scene.id === action.payload.id ? { ...scene, ...action.payload } : scene,
+        ),
+      };
+
     case 'SET_LOADING':
       return { ...state, loading: action.payload };
 
@@ -48,4 +60,4 @@ const sceneReducer = (state: State, action: Action): State => {
   }
 };
 
-export { initialSceneState, sceneReducer };
+export { initialSceneState, sceneReducer, type Scene };

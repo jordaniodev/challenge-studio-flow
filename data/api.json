@@ -6,32 +6,168 @@
           "description": "A story about a man and his dog"
         }
     ],
-    "flows": [
+    "steps": [
       {
         "id": "1",
-        "label": "Flow 1",
-        "description": "Flow 1 description"
+        "step": 1,
+        "label": "Roteirizado",
+        "description": "Cenas roteirizadas"
       },
       {
         "id": "2",
-        "label": "Flow 2",
-        "description": "Flow 2 description"
+        "step": 2,
+        "label": "Em pré-produção",
+        "description": "Cenas em pré-produção"
+      },
+      {
+        "id": "3",
+        "step": 3,
+        "label": "Em gravação",
+        "description": "Cenas em gravação"
+      },
+      {
+        "id": "4",
+        "step": 4,
+        "label": "Em pós-produção",
+        "description": "Cenas em pós-produção"
+      },
+      {
+        "id": "5",
+        "step": 5,
+        "label": "Finalizado",
+        "description": "Cenas finalizadas"
       }
     ],
     "scenes": [
         {
           "id": "1",
-          "title": "Cena 1",
-          "description": "A story about a man and his dog",
           "step": 1,
-          "columnId": "column-1"
+          "episode": "1",
+          "title": "Cena 1",
+          "columnId": "column-1",
+          "recordDate": "2025-01-01",
+          "recordLocation": "location-1",
+          "description": "A story about a man and his dog"
         },
         {
           "id": "2",
-          "title": "Cena 2",
-          "description": "A story about a man and his dog",
           "step": 2,
-          "columnId": "column-2"
+          "episode": "1",
+          "title": "Cena 2",
+          "columnId": "column-2",
+          "recordDate": "2025-01-01",
+          "recordLocation": "location-1",
+          "description": "A story about a man and his dog"
+        },
+        {
+          "id": "3",
+          "step": 3,
+          "episode": "1",
+          "title": "Cena 3",
+          "columnId": "column-3",
+          "recordDate": "2025-01-01",
+          "recordLocation": "location-1",
+          "description": "A story about a man and his dog"
+        },
+        {
+          "id": "4",
+          "step": 2,
+          "episode": "1",
+          "title": "Cena 4",
+          "columnId": "column-4",
+          "recordDate": "2025-01-01",
+          "recordLocation": "location-1",
+          "description": "A story about a man and his dog"
+        },
+        {
+          "id": "5",
+          "step": 3,
+          "episode": "1",
+          "title": "Cena 5",
+          "columnId": "column-5",
+          "recordDate": "2025-01-01",
+          "recordLocation": "location-1",
+          "description": "A story about a man and his dog"
+        },
+        {
+          "id": "6",
+          "step": 2,
+          "episode": "1",
+          "title": "Cena 6",
+          "columnId": "column-6",
+          "recordDate": "2025-01-01",
+          "recordLocation": "location-1",
+          "description": "A story about a man and his dog"
+        },
+        {
+          "id": "7",
+          "step": 3,
+          "episode": "1",
+          "title": "Cena 7",
+          "columnId": "column-7",
+          "recordDate": "2025-01-01",
+          "recordLocation": "location-1",
+          "description": "A story about a man and his dog"
+        },
+        {
+          "id": "8",
+          "step": 1,
+          "episode": "1",
+          "title": "Cena 8",
+          "columnId": "column-8",
+          "recordDate": "2025-01-01",
+          "recordLocation": "location-1",
+          "description": "A story about a man and his dog"
+        },
+        {
+          "id": "9",
+          "step": 4,
+          "episode": "1",
+          "title": "Cena 9",
+          "columnId": "column-9",
+          "recordDate": "2025-01-01",
+          "recordLocation": "location-1",
+          "description": "A story about a man and his dog"
+        },
+        {
+          "id": "10",
+          "step": 5,
+          "episode": "1",
+          "title": "Cena 10",
+          "columnId": "column-10",
+          "recordDate": "2025-01-01",
+          "recordLocation": "location-1",
+          "description": "A story about a man and his dog"
+        },
+        {
+          "id": "11",
+          "step": 5,
+          "episode": "1",
+          "title": "Cena 11",
+          "columnId": "column-11",
+          "recordDate": "2025-01-01",
+          "recordLocation": "location-1",
+          "description": "A story about a man and his dog"
+        },
+        {
+          "id": "12",
+          "step": 3,
+          "episode": "1",
+          "title": "Cena 12",
+          "columnId": "column-12",
+          "recordDate": "2025-01-01",
+          "recordLocation": "location-1",
+          "description": "A story about a man and his dog"
+        },
+        {
+          "id": "13",
+          "step": 4,
+          "episode": "1",
+          "title": "Cena 13",
+          "columnId": "column-13",
+          "recordDate": "2025-01-01",
+          "recordLocation": "location-1",
+          "description": "A story about a man and his dog"
         }
     ]
 }

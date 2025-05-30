@@ -1,6 +1,14 @@
 import { useEffect, useReducer, useState } from 'react';
 
-import { DndContext, type DragEndEvent, DragOverlay, type DragStartEvent } from '@dnd-kit/core';
+import {
+  DndContext,
+  type DragEndEvent,
+  DragOverlay,
+  type DragStartEvent,
+  PointerSensor,
+  useSensor,
+  useSensors,
+} from '@dnd-kit/core';
 import { ArrowLeftIcon, PlayIcon } from 'lucide-react';
 
 import { Button } from '../../components/button';
@@ -9,7 +17,7 @@ import { Column } from '../../components/column';
 import { Scene, type SceneProps } from '../../components/scene';
 import Title from '../../components/title';
 import { useProduction } from '../../hooks/useProduction';
-import { initialSceneState, sceneReducer } from '../../reducers/scenes';
+import { type Scene as SceneDetails, initialSceneState, sceneReducer } from '../../reducers/scenes';
 
 const steps: Record<number, string> = {
   1: 'Roteirizado',
@@ -35,6 +43,9 @@ const Studio = () => {
       columnId: active.data.current?.columnId,
       title: active.data.current?.title,
       description: active.data.current?.description,
+      episode: active.data.current?.episode,
+      recordDate: active.data.current?.recordDate,
+      recordLocation: active.data.current?.recordLocation,
     });
   };
 
@@ -62,6 +73,13 @@ const Studio = () => {
     });
   };
 
+  const handleSceneUpdate = (updatedScene: SceneDetails) => {
+    dispatch({
+      type: 'UPDATE_SCENE',
+      payload: updatedScene,
+    });
+  };
+
   const fetchScenes = async () => {
     try {
       dispatch({ type: 'SET_LOADING', payload: true });
@@ -80,6 +98,15 @@ const Studio = () => {
       dispatch({ type: 'SET_LOADING', payload: false });
     }
   };
+
+  const sensors = useSensors(
+    useSensor(PointerSensor, {
+      activationConstraint: {
+        delay: 200,
+        tolerance: 5,
+      },
+    }),
+  );
 
   useEffect(() => {
     fetchScenes();
@@ -119,18 +146,8 @@ const Studio = () => {
         <Title />
       </div>
       <div className='flex gap-4 overflow-x-auto w-full h-full'>
-        <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
-          <DragOverlay>
-            {activeScene ? (
-              <Scene
-                id={activeScene.id}
-                step={activeScene.step}
-                title={activeScene.title}
-                description={activeScene.description}
-                columnId={activeScene.columnId}
-              />
-            ) : null}
-          </DragOverlay>
+        <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd} sensors={sensors}>
+          <DragOverlay>{activeScene ? <Scene {...activeScene} /> : null}</DragOverlay>
           {[1, 2, 3, 4, 5].map((step) => (
             <Column
               key={step}
@@ -142,7 +159,7 @@ const Studio = () => {
               {state.scenes
                 .filter((scene) => scene.step === step)
                 .map((scene) => (
-                  <Scene key={scene.id} {...scene} />
+                  <Scene key={scene.id} {...scene} onUpdate={handleSceneUpdate} />
                 ))}
             </Column>
           ))}
