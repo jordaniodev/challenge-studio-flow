@@ -49,6 +49,10 @@ const Studio = () => {
 
     if (typeof toStep !== 'number' || fromStep === toStep) return;
 
+    if (fromStep + 1 !== toStep) {
+      return;
+    }
+
     dispatch({
       type: 'MOVE_SCENE',
       payload: {
