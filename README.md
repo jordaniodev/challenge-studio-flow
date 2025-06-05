@@ -1,54 +1,59 @@
-# React + TypeScript + Vite
+# Studio Flow - Teste Técnico
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto simula um **kanban de cenas** utilizado por um estúdio para organizar a produção de conteúdo. A ideia é simples: cada "cena" passa por diferentes status (ex: planejada, em produção, finalizada), e deve poder ser movida entre eles conforme seu progresso.
 
-Currently, two official plugins are available:
+## Contexto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Um desenvolvedor júnior iniciou esse projeto, mas não conseguiu concluí-lo. O código está incompleto, desorganizado e apresenta diversos problemas. Agora, com um prazo apertado de **5 dias**, precisamos que ele funcione como deveria.
 
-## Expanding the ESLint configuration
+Este teste serve para avaliar sua capacidade de:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* Ler e entender código legado
+* Resolver bugs
+* Refatorar e organizar a base de código
+* Implementar novas funcionalidades
+* Entregar uma aplicação funcional
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## O que precisa ser feito
+
+Você pode (e deve) alterar **o que for necessário** para fazer o projeto funcionar corretamente, com qualidade e estabilidade.
+
+Não se limite apenas a corrigir bugs visíveis — use seu julgamento técnico para fazer melhorias na estrutura geral do projeto.
+
+## Bugs identificados pela QA
+
+* Cenas desaparecem ao serem movidas entre status
+* O botão de salvar não funciona em algumas situações
+* Cenas podem ser movidas para status inválidos
+* Cenas são duplicadas na primeira renderização
+* A aplicação quebra ao mover uma cena sem título
+
+## Outros problemas conhecidos
+
+* Problemas de performance ao renderizar listas maiores
+* Estrutura de código confusa e pouco coesa
+* Repetição de lógica em diferentes partes da aplicação
+* Falta de tratamento de erros
+
+## Funcionalidades que ainda precisam ser implementadas
+
+Além de corrigir os problemas existentes, também é necessário:
+
+* Permitir **criação de uma nova cena** no kanban
+* Implementar a **reordenação das cenas dentro de cada coluna**
+
+## Como rodar o projeto
+
+```bash
+# Instale as dependências
+pnpm install
+
+# Inicie o servidor de desenvolvimento
+pnpm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+A aplicação estará disponível em `http://localhost:3000`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Entrega
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Você tem liberdade total para reestruturar, remover ou adicionar o que achar necessário para entregar um sistema funcional, com código limpo, organizado e performático.

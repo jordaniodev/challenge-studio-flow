@@ -2,7 +2,6 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import { Layout } from '../components/layout';
 import Studio from '../pages/Studio';
-import Timeline from '../pages/Timeline';
 
 const router = createBrowserRouter([
   {
@@ -11,10 +10,6 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Studio />,
-      },
-      {
-        path: '/timeline',
-        element: <Timeline />,
       },
     ],
   },
