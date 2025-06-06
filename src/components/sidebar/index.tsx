@@ -1,11 +1,11 @@
-import { NavLink } from 'react-router-dom';
+import {NavLink} from "react-router-dom"
 
-import { cn } from '../../utils/cn';
+import {cn} from "../../utils/cn"
 
 const navigation = [
   {
-    name: 'Studio',
-    href: '/',
+    name: "Studio",
+    href: "/",
     icon: (
       <svg
         xmlns='http://www.w3.org/2000/svg'
@@ -21,29 +21,9 @@ const navigation = [
           d='M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25'
         />
       </svg>
-    ),
-  },
-  {
-    name: 'Timeline',
-    href: '/timeline',
-    icon: (
-      <svg
-        xmlns='http://www.w3.org/2000/svg'
-        fill='none'
-        viewBox='0 0 24 24'
-        strokeWidth={1.5}
-        stroke='currentColor'
-        className='w-5 h-5'
-      >
-        <path
-          strokeLinecap='round'
-          strokeLinejoin='round'
-          d='M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0l4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0l-5.571 3-5.571-3'
-        />
-      </svg>
-    ),
-  },
-];
+    )
+  }
+]
 
 export function Sidebar() {
   return (
@@ -52,16 +32,16 @@ export function Sidebar() {
         <h2 className='text-lg font-semibold text-foreground'>Menu</h2>
       </div>
       <nav className='flex-1 space-y-1 px-2 py-4'>
-        {navigation.map((item) => (
+        {navigation.map(item => (
           <NavLink
             key={item.name}
             to={item.href}
-            className={({ isActive }) =>
+            className={({isActive}) =>
               cn(
-                'group flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors',
+                "group flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors",
                 isActive
-                  ? 'bg-primary text-primary-foreground'
-                  : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground',
+                  ? "bg-primary text-primary-foreground"
+                  : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
               )
             }
           >
@@ -71,5 +51,5 @@ export function Sidebar() {
         ))}
       </nav>
     </div>
-  );
+  )
 }

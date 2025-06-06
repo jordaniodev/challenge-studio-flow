@@ -58,6 +58,11 @@ export default tsEslint.config(
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'error',
 
+      'indent': ['error', 2],
+      'quotes': ['error', 'single'],
+      'semi': ['error', 'always'],
+      'comma-dangle': ['error', 'always-multiline'],
+
       'prettier/prettier': [
         'error',
         {
@@ -95,6 +100,7 @@ export default tsEslint.config(
         },
       ],
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+
     },
   },
 );

@@ -1,13 +1,13 @@
 import { useEffect, useReducer, useState } from 'react';
 
 import {
-  DndContext,
-  type DragEndEvent,
-  DragOverlay,
-  type DragStartEvent,
-  PointerSensor,
-  useSensor,
-  useSensors,
+	DndContext,
+	type DragEndEvent,
+	DragOverlay,
+	type DragStartEvent,
+	PointerSensor,
+	useSensor,
+	useSensors,
 } from '@dnd-kit/core';
 import { ArrowLeftIcon, PlayIcon } from 'lucide-react';
 
@@ -53,16 +53,13 @@ const Studio = () => {
     setActiveScene(null);
 
     const { active, over } = event;
+
     if (!over || active.id === over.id) return;
 
     const fromStep = active.data.current?.step;
     const toStep = over.data.current?.step;
 
     if (typeof toStep !== 'number' || fromStep === toStep) return;
-
-    if (fromStep + 1 !== toStep) {
-      return;
-    }
 
     dispatch({
       type: 'MOVE_SCENE',

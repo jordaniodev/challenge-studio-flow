@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import { useDraggable } from '@dnd-kit/core';
 import { CSS } from '@dnd-kit/utilities';
@@ -18,6 +18,10 @@ interface SceneProps {
   onUpdate?: (scene: SceneType) => void;
 }
 
+const heavyComputation = (text: string) => {
+  return text.trim();
+};
+
 const Scene = ({
   id,
   title,
@@ -30,6 +34,14 @@ const Scene = ({
   onUpdate,
 }: SceneProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const computedTitle = useMemo(() => {
+    return heavyComputation(title);
+  }, [title]);
+
+  const computedDescription = useMemo(() => {
+    return heavyComputation(description);
+  }, [description]);
 
   const { attributes, listeners, setNodeRef, transform, active } = useDraggable({
     id,
@@ -71,8 +83,8 @@ const Scene = ({
         className='flex flex-col gap-2 p-2 cursor-pointer bg-primary opacity-50 text-accent rounded-lg border border-border'
       >
         <div className='flex flex-col gap-1'>
-          <span className='text-sm font-medium'>{title}</span>
-          <span className='text-xs'>{description}</span>
+          <span className='text-sm font-medium'>{computedTitle}</span>
+          <span className='text-xs'>{computedDescription}</span>
         </div>
       </div>
     );
@@ -98,8 +110,8 @@ const Scene = ({
         className='flex flex-col gap-2 p-2 cursor-pointer bg-primary text-accent rounded-lg border border-border'
       >
         <div className='flex flex-col gap-1'>
-          <span className='text-sm font-medium'>{title}</span>
-          <span className='text-xs'>{description}</span>
+          <span className='text-sm font-medium'>{computedTitle}</span>
+          <span className='text-xs'>{computedDescription}</span>
         </div>
       </div>
     </div>
