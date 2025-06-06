@@ -1,13 +1,13 @@
 import { useEffect, useReducer, useState } from 'react';
 
 import {
-	DndContext,
-	type DragEndEvent,
-	DragOverlay,
-	type DragStartEvent,
-	PointerSensor,
-	useSensor,
-	useSensors,
+  DndContext,
+  type DragEndEvent,
+  DragOverlay,
+  type DragStartEvent,
+  PointerSensor,
+  useSensor,
+  useSensors,
 } from '@dnd-kit/core';
 import { ArrowLeftIcon, PlayIcon } from 'lucide-react';
 
