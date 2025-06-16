@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+
 import {
   type Active,
   DndContext,
@@ -8,20 +11,16 @@ import {
   useSensor,
   useSensors,
 } from '@dnd-kit/core';
-import { arrayMove, SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
+import { SortableContext, arrayMove, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import { ArrowLeftIcon } from 'lucide-react';
 
 import { Button } from '../../components/Button';
 import { Column } from '../../components/Column';
 import { Scene, type SceneProps } from '../../components/Scene';
+import { type SceneDetails } from '../../components/SceneModal';
 import Title from '../../components/title';
 import { useProduction } from '../../hooks/useProduction';
-
-import { type SceneDetails } from '../../components/SceneModal';
 import { useScene } from '../../hooks/useScene';
-import { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-
 
 const steps: Record<number, string> = {
   1: 'Roteirizado',
@@ -44,7 +43,7 @@ const Studio = () => {
   };
 
   if (!selectedProduction) {
-    selectProductionById(id!);
+    selectProductionById(id as string);
   }
 
   const handleDragStart = (event: DragStartEvent) => {
@@ -53,43 +52,39 @@ const Studio = () => {
   };
 
   const getActiveScene = (active: Active | null): SceneProps | null => {
-    return scenes.find(scene => scene.id === String(active?.id)) || null;
+    return scenes.find((scene) => scene.id === String(active?.id)) || null;
   };
 
   const handleDragEnd = (event: DragEndEvent) => {
-  setActiveScene(null);
+    setActiveScene(null);
 
-  const { active, over } = event;
-  if (!over || active.id === over.id) return;
+    const { active, over } = event;
+    if (!over || active.id === over.id) return;
 
-  const activeSceneObj = scenes.find(scene => scene.id === active.id);
-  const overSceneObj = scenes.find(scene => scene.id === over.id);
+    const activeSceneObj = scenes.find((scene) => scene.id === active.id);
+    const overSceneObj = scenes.find((scene) => scene.id === over.id);
 
-  if (
-    activeSceneObj &&
-    overSceneObj &&
-    activeSceneObj.step === overSceneObj.step
-  ) {
-    const step = activeSceneObj.step;
-    const stepScenes = scenes.filter(scene => scene.step === step);
-    const oldIndex = stepScenes.findIndex(scene => scene.id === active.id);
-    const newIndex = stepScenes.findIndex(scene => scene.id === over.id);
+    if (activeSceneObj && overSceneObj && activeSceneObj.step === overSceneObj.step) {
+      const step = activeSceneObj.step;
+      const stepScenes = scenes.filter((scene) => scene.step === step);
+      const oldIndex = stepScenes.findIndex((scene) => scene.id === active.id);
+      const newIndex = stepScenes.findIndex((scene) => scene.id === over.id);
 
-    if (oldIndex !== newIndex) {
-      const newOrder = arrayMove(stepScenes, oldIndex, newIndex);
+      if (oldIndex !== newIndex) {
+        const newOrder = arrayMove(stepScenes, oldIndex, newIndex);
 
-      updateScenesOrder(step, newOrder);
+        updateScenesOrder(step, newOrder);
+      }
+      return;
     }
-    return;
-  }
 
-  const fromStep = Number(activeSceneObj?.step);
-  const toStep = Number(overSceneObj?.step);
+    const fromStep = Number(activeSceneObj?.step);
+    const toStep = Number(overSceneObj?.step);
 
-  if (toStep !== fromStep + 1) return;
+    if (toStep !== fromStep + 1) return;
 
-  moveScene(active.id as string, toStep);
-};
+    moveScene(active.id as string, toStep);
+  };
 
   const handleSceneUpdate = (updatedScene: SceneDetails) => {
     updateScene(updatedScene);
@@ -97,11 +92,9 @@ const Studio = () => {
 
   const countedScenesByStep = (step: number) => scenes.filter((s) => s.step === step).length;
 
-  const filteredScenesByStep = (step: number) => scenes.filter(
-  (scene) => scene.step === step
-)
+  const filteredScenesByStep = (step: number) => scenes.filter((scene) => scene.step === step);
 
-  const stepIndexList = Object.keys(steps).map(Number)
+  const stepIndexList = Object.keys(steps).map(Number);
 
   const sensors = useSensors(
     useSensor(PointerSensor, {
@@ -113,9 +106,14 @@ const Studio = () => {
   );
 
   return (
-    <div className='w-full bg-background p-4 flex flex-col gap-4 h-full'> 
+    <div className='w-full bg-background p-4 flex flex-col gap-4 h-full'>
       <div className='flex items-center gap-4'>
-        <Button variant='outline' size='icon' className='cursor-pointer' onClick={() => handleUnselectProduction()}>
+        <Button
+          variant='outline'
+          size='icon'
+          className='cursor-pointer'
+          onClick={() => handleUnselectProduction()}
+        >
           <ArrowLeftIcon />
         </Button>
         <Title />
@@ -132,7 +130,7 @@ const Studio = () => {
               count={countedScenesByStep(step)}
             >
               <SortableContext
-                items={filteredScenesByStep(step).map(scene => scene.id)}
+                items={filteredScenesByStep(step).map((scene) => scene.id)}
                 strategy={verticalListSortingStrategy}
               >
                 {filteredScenesByStep(step).map((scene) => (

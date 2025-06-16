@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+
 import { SceneContext } from '../contexts/scenes/scenes.context';
 
 export function useScene() {

@@ -1,6 +1,15 @@
-import { createContext, useCallback, useEffect, useReducer, useContext, type ReactNode, useState } from "react";
-import { ActionType, type Action, type Scene, type State } from "./scenes.types";
-import { fetchScenes } from "../../services/scene.service";
+import {
+  type ReactNode,
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from 'react';
+
+import { fetchScenes } from '../../services/scene.service';
+import { type Action, ActionType, type Scene, type State } from './scenes.types';
 
 const initialSceneState: State = {
   scenes: [],
@@ -23,7 +32,10 @@ const moveScene: Handler<Extract<Action, { type: ActionType.MOVE_SCENE }>> = (st
   ),
 });
 
-const updateScene: Handler<Extract<Action, { type: ActionType.UPDATE_SCENE }>> = (state, action) => ({
+const updateScene: Handler<Extract<Action, { type: ActionType.UPDATE_SCENE }>> = (
+  state,
+  action,
+) => ({
   ...state,
   scenes: state.scenes.map((scene) =>
     scene.id === action.payload.id ? { ...scene, ...action.payload } : scene,
@@ -41,11 +53,12 @@ const setError: Handler<Extract<Action, { type: ActionType.SET_ERROR }>> = (stat
   loading: false,
 });
 
-
-const updateScenesOrderInStep: Handler<Extract<Action, { type: ActionType.UPDATE_SCENES_ORDER_IN_STEP }>> = (state, action) => ({
+const updateScenesOrderInStep: Handler<
+  Extract<Action, { type: ActionType.UPDATE_SCENES_ORDER_IN_STEP }>
+> = (state, action) => ({
   ...state,
   scenes: [
-    ...state.scenes.filter(scene => scene.step !== action.payload.step),
+    ...state.scenes.filter((scene) => scene.step !== action.payload.step),
     ...action.payload.newOrder,
   ],
 });
@@ -57,10 +70,10 @@ const handlers = {
   [ActionType.SET_LOADING]: setLoading,
   [ActionType.SET_ERROR]: setError,
   [ActionType.UPDATE_SCENES_ORDER_IN_STEP]: updateScenesOrderInStep,
-
 };
 
 function sceneReducer(state: State, action: Action): State {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handler = handlers[action.type as keyof typeof handlers] as Handler<any> | undefined;
   return handler ? handler(state, action) : state;
 }
@@ -78,9 +91,8 @@ const SceneContext = createContext<SceneContextValue | undefined>(undefined);
 
 function SceneProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(sceneReducer, initialSceneState);
-  const [filter, setFilter] = useState("");
+  const [filter, setFilter] = useState('');
   const [allScenes, setAllScenes] = useState<Scene[]>([]);
-
 
   const updateScenesOrder = (step: number, newOrder: Scene[]) => {
     dispatch({ type: ActionType.UPDATE_SCENES_ORDER_IN_STEP, payload: { step, newOrder } });
@@ -95,7 +107,7 @@ function SceneProvider({ children }: { children: ReactNode }) {
     } catch (error) {
       dispatch({
         type: ActionType.SET_ERROR,
-        payload: error instanceof Error ? error.message : "An error occurred",
+        payload: error instanceof Error ? error.message : 'An error occurred',
       });
     } finally {
       dispatch({ type: ActionType.SET_LOADING, payload: false });
@@ -110,9 +122,9 @@ function SceneProvider({ children }: { children: ReactNode }) {
     }
     const lower = value.trim().toLowerCase();
     const filtered = allScenes.filter(
-      scene =>
+      (scene) =>
         scene.title.toLowerCase().includes(lower) ||
-        scene.description.toLowerCase().includes(lower)
+        scene.description.toLowerCase().includes(lower),
     );
     dispatch({ type: ActionType.SET_SCENES, payload: filtered });
   };
@@ -131,8 +143,8 @@ function SceneProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     loadScenes();
-    window.addEventListener("storage", handleStorage);
-    return () => window.removeEventListener("storage", handleStorage);
+    window.addEventListener('storage', handleStorage);
+    return () => window.removeEventListener('storage', handleStorage);
   }, [loadScenes, handleStorage]);
 
   return (
@@ -154,8 +166,8 @@ function SceneProvider({ children }: { children: ReactNode }) {
 
 function useSceneContext() {
   const context = useContext(SceneContext);
-  if (!context) throw new Error("useSceneContext must be used within a SceneProvider");
+  if (!context) throw new Error('useSceneContext must be used within a SceneProvider');
   return context;
 }
-
+// eslint-disable-next-line react-refresh/only-export-components
 export { SceneProvider, useSceneContext, SceneContext };

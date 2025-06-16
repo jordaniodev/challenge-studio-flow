@@ -1,8 +1,9 @@
-import { useLocation } from "react-router-dom"
-import { HeaderScene } from "../HeaderScene"
+import { useLocation } from 'react-router-dom';
+
+import { HeaderScene } from '../HeaderScene';
 
 export function Header() {
-  const { pathname } = useLocation()
+  const { pathname } = useLocation();
   return (
     <header className='sticky top-0 z-50 flex items-center justify-between w-full gap-8 px-6 py-4 border-b border-border bg-background'>
       <div className='flex items-center gap-12'>
@@ -18,5 +19,5 @@ export function Header() {
         </div>
       </div>
     </header>
-  )
+  );
 }

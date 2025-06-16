@@ -1,6 +1,8 @@
 import { useMemo, useState } from 'react';
+
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
+
 import { type Scene as SceneType } from '../../contexts/scenes/scenes.types';
 import { SceneModal } from '../SceneModal';
 
@@ -35,14 +37,7 @@ const Scene = ({
   const computedTitle = useMemo(() => heavyComputation(title), [title]);
   const computedDescription = useMemo(() => heavyComputation(description), [description]);
 
-  const {
-    attributes,
-    listeners,
-    setNodeRef,
-    transform,
-    transition,
-    isDragging,
-  } = useSortable({
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id,
     data: {
       columnId,
@@ -74,11 +69,7 @@ const Scene = ({
 
   return (
     <div>
-      <SceneModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        scene={sceneDetails}
-      />
+      <SceneModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} scene={sceneDetails} />
 
       <div
         ref={setNodeRef}
