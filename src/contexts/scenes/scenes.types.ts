@@ -43,4 +43,5 @@ type SceneProviderProps = {
   children: ReactNode;
 };
 
-export { Scene, State, ActionType, Action, SceneContextType, SceneProviderProps };
+export type { Scene, State, Action, SceneContextType, SceneProviderProps };
+export { ActionType };

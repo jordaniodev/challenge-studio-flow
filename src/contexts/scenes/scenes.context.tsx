@@ -169,5 +169,6 @@ function useSceneContext() {
   if (!context) throw new Error('useSceneContext must be used within a SceneProvider');
   return context;
 }
+
 // eslint-disable-next-line react-refresh/only-export-components
 export { SceneProvider, useSceneContext, SceneContext };
