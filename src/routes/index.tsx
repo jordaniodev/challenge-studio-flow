@@ -1,15 +1,26 @@
-import {RouterProvider, createBrowserRouter} from "react-router-dom"
+import { RouterProvider, createBrowserRouter } from "react-router-dom"
 
-import {Layout} from "../components/layout"
+import { Layout } from "../components/Layout"
 import Studio from "../pages/Studio"
+import { SceneProvider } from "../contexts/scenes/scenes.context"
+import { Productions } from "../pages/Productions"
+
 
 const router = createBrowserRouter([
   {
     element: <Layout />,
     children: [
       {
+        path: "production/:id",
+        element: (
+            <Studio />
+        ),
+      },
+      {
         path: "/",
-        element: <Studio />
+        element: (
+          <Productions />
+        ),
       }
     ]
   }

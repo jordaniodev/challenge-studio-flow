@@ -1,6 +1,5 @@
-import { useEffect, useReducer, useState } from 'react';
-
 import {
+  type Active,
   DndContext,
   type DragEndEvent,
   DragOverlay,
@@ -9,15 +8,20 @@ import {
   useSensor,
   useSensors,
 } from '@dnd-kit/core';
-import { ArrowLeftIcon, PlayIcon } from 'lucide-react';
+import { arrayMove, SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
+import { ArrowLeftIcon } from 'lucide-react';
 
-import { Button } from '../../components/button';
-import { Card } from '../../components/card';
-import { Column } from '../../components/column';
-import { Scene, type SceneProps } from '../../components/scene';
+import { Button } from '../../components/Button';
+import { Column } from '../../components/Column';
+import { Scene, type SceneProps } from '../../components/Scene';
 import Title from '../../components/title';
 import { useProduction } from '../../hooks/useProduction';
-import { type Scene as SceneDetails, initialSceneState, sceneReducer } from '../../reducers/scenes';
+
+import { SceneModal, type SceneDetails } from '../../components/SceneModal';
+import { useScene } from '../../hooks/useScene';
+import { useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+
 
 const steps: Record<number, string> = {
   1: 'Roteirizado',
@@ -28,73 +32,76 @@ const steps: Record<number, string> = {
 };
 
 const Studio = () => {
-  const { selectedProduction, productions, selectProduction, deselectProduction } = useProduction();
-
-  const [state, dispatch] = useReducer(sceneReducer, initialSceneState);
-
+  const { selectedProduction, unselectProduction, selectProductionById } = useProduction();
+  const { moveScene, updateScene, scenes, updateScenesOrder } = useScene();
   const [activeScene, setActiveScene] = useState<SceneProps | null>(null);
+  const navigate = useNavigate();
+  const { id } = useParams<{ id: string }>();
+
+  const handleUnselectProduction = () => {
+    unselectProduction();
+    navigate('/');
+  };
+
+  if (!selectedProduction) {
+    selectProductionById(id!);
+  }
 
   const handleDragStart = (event: DragStartEvent) => {
     const { active } = event;
+    setActiveScene(getActiveScene(active));
+  };
 
-    setActiveScene({
-      id: active.id as string,
-      step: active.data.current?.step,
-      columnId: active.data.current?.columnId,
-      title: active.data.current?.title,
-      description: active.data.current?.description,
-      episode: active.data.current?.episode,
-      recordDate: active.data.current?.recordDate,
-      recordLocation: active.data.current?.recordLocation,
-    });
+  const getActiveScene = (active: Active | null): SceneProps | null => {
+    return scenes.find(scene => scene.id === String(active?.id)) || null;
   };
 
   const handleDragEnd = (event: DragEndEvent) => {
-    setActiveScene(null);
+  setActiveScene(null);
 
-    const { active, over } = event;
+  const { active, over } = event;
+  if (!over || active.id === over.id) return;
 
-    if (!over || active.id === over.id) return;
+  const activeSceneObj = scenes.find(scene => scene.id === active.id);
+  const overSceneObj = scenes.find(scene => scene.id === over.id);
 
-    const fromStep = active.data.current?.step;
-    const toStep = over.data.current?.step;
+  if (
+    activeSceneObj &&
+    overSceneObj &&
+    activeSceneObj.step === overSceneObj.step
+  ) {
+    const step = activeSceneObj.step;
+    const stepScenes = scenes.filter(scene => scene.step === step);
+    const oldIndex = stepScenes.findIndex(scene => scene.id === active.id);
+    const newIndex = stepScenes.findIndex(scene => scene.id === over.id);
 
-    if (typeof toStep !== 'number' || fromStep === toStep) return;
+    if (oldIndex !== newIndex) {
+      const newOrder = arrayMove(stepScenes, oldIndex, newIndex);
 
-    dispatch({
-      type: 'MOVE_SCENE',
-      payload: {
-        id: active.id as string,
-        toStep,
-      },
-    });
-  };
+      updateScenesOrder(step, newOrder);
+    }
+    return;
+  }
+
+  const fromStep = Number(activeSceneObj?.step);
+  const toStep = Number(overSceneObj?.step);
+
+  if (toStep !== fromStep + 1) return;
+
+  moveScene(active.id as string, toStep);
+};
 
   const handleSceneUpdate = (updatedScene: SceneDetails) => {
-    dispatch({
-      type: 'UPDATE_SCENE',
-      payload: updatedScene,
-    });
+    updateScene(updatedScene);
   };
 
-  const fetchScenes = async () => {
-    try {
-      dispatch({ type: 'SET_LOADING', payload: true });
+  const countedScenesByStep = (step: number) => scenes.filter((s) => s.step === step).length;
 
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/scenes`);
-      if (!response.ok) throw new Error('Failed to fetch scenes');
+  const filteredScenesByStep = (step: number) => scenes.filter(
+  (scene) => scene.step === step
+)
 
-      const data = await response.json();
-      dispatch({ type: 'SET_SCENES', payload: data });
-    } catch (err) {
-      dispatch({
-        type: 'SET_ERROR',
-        payload: err instanceof Error ? err.message : 'Unknown error',
-      });
-    } finally {
-      dispatch({ type: 'SET_LOADING', payload: false });
-    }
-  };
+  const stepIndexList = Object.keys(steps).map(Number)
 
   const sensors = useSensors(
     useSensor(PointerSensor, {
@@ -105,39 +112,10 @@ const Studio = () => {
     }),
   );
 
-  useEffect(() => {
-    fetchScenes();
-  }, []);
-
-  if (!selectedProduction) {
-    return (
-      <div className='w-screen bg-background p-4 flex flex-col gap-4'>
-        <div className='flex flex-wrap gap-4'>
-          {productions.map((production) => (
-            <Card
-              key={production.id}
-              icon={<PlayIcon />}
-              title={production.name}
-              subtitle={production.description}
-              quickLinks={[
-                {
-                  label: 'Ir para produção',
-                  onClick: () => {
-                    selectProduction(production);
-                  },
-                },
-              ]}
-            />
-          ))}
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <div className='w-full bg-background p-4 flex flex-col gap-4 h-full'>
+    <div className='w-full bg-background p-4 flex flex-col gap-4 h-full'> 
       <div className='flex items-center gap-4'>
-        <Button variant='outline' size='icon' onClick={() => deselectProduction()}>
+        <Button variant='outline' size='icon' className='cursor-pointer' onClick={() => handleUnselectProduction()}>
           <ArrowLeftIcon />
         </Button>
         <Title />
@@ -145,19 +123,22 @@ const Studio = () => {
       <div className='flex gap-4 overflow-x-auto w-full h-full'>
         <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd} sensors={sensors}>
           <DragOverlay>{activeScene ? <Scene {...activeScene} /> : null}</DragOverlay>
-          {[1, 2, 3, 4, 5].map((step) => (
+          {stepIndexList.map((step) => (
             <Column
               key={step}
-              id={`column-${step}`}
+              id={`${step}`}
               step={step}
               label={steps[step]}
-              count={state.scenes.filter((s) => s.step === step).length}
+              count={countedScenesByStep(step)}
             >
-              {state.scenes
-                .filter((scene) => scene.step === step)
-                .map((scene) => (
+              <SortableContext
+                items={filteredScenesByStep(step).map(scene => scene.id)}
+                strategy={verticalListSortingStrategy}
+              >
+                {filteredScenesByStep(step).map((scene) => (
                   <Scene key={scene.id} {...scene} onUpdate={handleSceneUpdate} />
                 ))}
+              </SortableContext>
             </Column>
           ))}
         </DndContext>
