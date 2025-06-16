@@ -17,7 +17,7 @@ import { Scene, type SceneProps } from '../../components/Scene';
 import Title from '../../components/title';
 import { useProduction } from '../../hooks/useProduction';
 
-import { SceneModal, type SceneDetails } from '../../components/SceneModal';
+import { type SceneDetails } from '../../components/SceneModal';
 import { useScene } from '../../hooks/useScene';
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';

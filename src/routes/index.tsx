@@ -2,7 +2,6 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom"
 
 import { Layout } from "../components/Layout"
 import Studio from "../pages/Studio"
-import { SceneProvider } from "../contexts/scenes/scenes.context"
 import { Productions } from "../pages/Productions"
 
 

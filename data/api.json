@@ -73,13 +73,13 @@
     },
     {
       "id": "4",
+      "title": "O Desafio 23",
+      "description": "João enfrenta seu primeiro desafio no trabalho",
       "step": 4,
       "episode": "1",
-      "title": "O Desafio",
       "columnId": "column-4",
-      "recordDate": "2024-04-01",
-      "recordLocation": "Escritório",
-      "description": "João enfrenta seu primeiro desafio no trabalho"
+      "recordDate": "2026-04-01",
+      "recordLocation": "Escritório"
     },
     {
       "id": "5",

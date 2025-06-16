@@ -29,7 +29,6 @@ const Scene = ({
   episode,
   recordDate,
   recordLocation,
-  onUpdate,
 }: SceneProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
