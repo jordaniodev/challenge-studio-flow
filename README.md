@@ -1,94 +1,104 @@
-# Studio Flow - Teste Técnico
+# Studio Flow - Solução do Teste Técnico 🚀
 
-Este repositório contém um projeto fictício chamado **Studio Flow**, criado exclusivamente para fins de avaliação técnica.
+Este repositório contém a minha solução para o **Teste Técnico Studio Flow**.
 
-A proposta simula uma ferramenta de **kanban de cenas**, utilizada (hipoteticamente) por um estúdio para organizar a produção de conteúdo audiovisual. O funcionamento esperado é simples: cada "cena" passa por etapas sequenciais (ex: planejada → em produção → finalizada) e deve poder ser movida entre elas conforme seu progresso.
+O projeto original simulava uma ferramenta simples de **kanban de cenas** para gestão de produção audiovisual, mas foi propositalmente entregue com diversas falhas e limitações técnicas.
 
-## Contexto
+Durante os **5 dias de prazo**, meu foco foi:
 
-Este projeto foi propositalmente iniciado de forma incompleta e com diversas limitações, como se tivesse sido desenvolvido por uma pessoa com pouca experiência técnica. A intenção é simular um cenário realista onde você deve assumir um código legado e levá-lo até uma versão funcional e bem estruturada.
+- Corrigir todos os bugs mapeados ✅  
+- Refatorar e reestruturar o código ✅  
+- Melhorar a tipagem e a organização geral ✅  
+- Implementar as funcionalidades faltantes ✅  
+- Garantir um código limpo, estável e de fácil manutenção ✅  
 
-Você terá **5 dias** para entregar uma solução que funcione conforme o esperado, com foco tanto na correção de erros quanto na qualidade e clareza do código.
+---
 
-Este teste serve para avaliar sua capacidade de:
+## ✅ Principais Melhorias
 
-* Compreender e evoluir código existente
-* Resolver bugs e inconsistências
-* Refatorar e estruturar melhor o projeto
-* Implementar novas funcionalidades
-* Tomar decisões técnicas com autonomia e bom senso
+### 💡 Qualidade de Código e Arquitetura
 
-## O que precisa ser feito
+- **Melhoria na Tipagem Global:**  
+  Refinei a tipagem em todo o projeto, incluindo actions dos contexts, estados globais, props de componentes e respostas de API.
 
-Você tem liberdade para alterar, reestruturar ou remover qualquer parte do código — o objetivo é que, ao final, o projeto esteja funcionando bem, com código limpo, estável e fácil de manter.
+- **Providers Tipados e Centralizados:**  
+  Criei **Providers React com tipagem forte**, centralizando as regras de negócio de produção e cena, facilitando a escalabilidade.
 
-Não se prenda apenas aos problemas já mapeados. Se identificar pontos fracos ou melhorias importantes, sinta-se à vontade para agir.
+- **Refatoração dos Reducers:**  
+  Substituí os `switch cases` por **funções de dispatch com arrow functions tipadas**, garantindo melhor legibilidade e evitando actions não tratadas.
 
-## Bugs identificados
+- **Padronização de Nomeclaturas:**  
+  Renomeei componentes para seguir uma **convenção de nomenclatura clara e consistente**, melhorando a experiência de desenvolvimento.
 
-A seguir, estão listados alguns comportamentos considerados incorretos que foram propositalmente deixados no projeto:
+- **Tratamento de Erros de API:**  
+  Implementei a função `safeFetch`, garantindo **tratamento centralizado de erros** e melhor feedback visual para falhas de requisição.
 
-1. **Movimentação incorreta de cenas no fluxo**
-   Atualmente é possível mover cenas para qualquer etapa, mas o correto é permitir apenas a movimentação para a **próxima etapa imediata**. Não deve ser possível voltar ou pular etapas.
+---
 
-2. **Status inválidos no modal de detalhes**
-   O campo de status no modal permite selecionar qualquer valor. Ele deve exibir apenas o **próximo status válido** no fluxo da cena.
+### 🎨 Camada de UI e Componentes
 
-3. **"Piscar" visual na coluna ao mover uma cena sobre ela**
-   Quando se arrasta uma cena e o ponteiro passa sobre a própria coluna de origem, ela alterna rapidamente entre estilos de hover e desabilitado, causando um efeito visual incômodo.
+- **Melhorias no Drag and Drop:**  
+  Alterei o componente `Column`, responsável por controlar o arrastar e soltar de cenas entre etapas e também o reordenamento dentro da mesma coluna.
 
-4. **Validação incorreta de data de gravação**
-   Ao editar uma cena, não deve ser permitido selecionar uma data de gravação no passado. A data deve ser **igual ou posterior à data atual**.
+- **Filtro e Criação de Cenas:**  
+  Implementei a possibilidade de filtrar e criar novas cenas diretamente no Kanban.
+---
 
-5. **Falta de tratamento visual para erro da API**
-   Quando ocorre uma falha na atualização da cena (por exemplo, a API retorna 404), a aplicação não exibe nenhuma mensagem de erro, e o estado local é atualizado como se a operação tivesse sido bem-sucedida. Isso causa inconsistência: o usuário acredita que a alteração foi salva, mas ao recarregar a página a mudança se perde. O sistema deve sinalizar falhas de forma clara e evitar que a interface mostre dados como se estivessem persistidos quando não estão.
+### 🛠️ Experiência do Desenvolvedor (DX)
 
-## Outros problemas conhecidos
+- **Scripts Unificados no `package.json`:**  
+  Configurei scripts para iniciar o Frontend e o JSON-server juntos com um único comando.
 
-Além dos bugs acima, há outros pontos que merecem atenção:
+- **Estrutura de Projeto Organizada:**  
+  Reestruturei pastas e a hierarquia de componentes para maior clareza e separação de responsabilidades.
 
-* Performance insatisfatória ao lidar com listas grandes de cenas
-* Estrutura de código desorganizada e com baixa coesão
-* Ausência de tratamento de erros em pontos críticos
+- **Formatação Padronizada:**  
+  Ajustei imports, espaçamentos e a estrutura de código para seguir um padrão único e consistente.
+---
 
-## Funcionalidades a serem implementadas
+## ✅ Funcionalidades Entregues
 
-Além da correção dos problemas, você deverá implementar duas funcionalidades que **ainda não existem no projeto**:
+- Correção de **todos os bugs descritos no teste original**.
+- Implementação das funcionalidades obrigatórias:
 
-* Criação de **novas cenas** diretamente no kanban
-* **Reordenação de cenas** dentro de cada coluna (drag and drop entre posições)
+  - **Criação de novas cenas** diretamente no Kanban.
+  - **Reordenação de cenas** dentro das colunas.
 
-## Como rodar o projeto
+---
 
-### Aplicação
+## 🔜 Próximos Passos Recomendados
+
+Embora o projeto já esteja funcional e estável, recomendo as seguintes melhorias para uma versão mais próxima de produção:
+
+- **Implementar Testes Unitários:**  
+  Começando por contexts, reducers e funções utilitárias.
+
+- **Implementar Testes End-to-End (E2E):**  
+  Usando ferramentas como **Cypress** ou **Playwright**, especialmente para validar drag-and-drop e modais.
+
+- **Paginação ou Virtualização de Listas:**  
+  Como o teste menciona problemas de performance com listas grandes.
+
+- **Mensagens de Feedback Visual Pós-Ação:**  
+  Exibir pequenos toasts ou mensagens de sucesso após ações como "Cena criada", "Movimentação concluída", etc.
+
+- **Acessibilidade:**  
+  Adicionar foco visível nos elementos interativos, ARIA labels nos botões de drag-and-drop e garantir navegação por teclado.
+
+- **Implementar Skeleton Loading:**  
+  Adicionar componentes de Skeleton para melhorar a experiência de carregamento, garantindo melhor percepção de performance durante requisições mais longas.
+---
+
+## 🖥️ Como Rodar o Projeto Localmente
+
+### 1. Instalar as dependências:
 
 ```bash
-# Instale as dependências
 pnpm install
+```
 
-# Rode o servidor de desenvolvimento
+### 2. Iniciar Frontend e API juntos:
+
+```bash
 pnpm run dev
 ```
-
-A aplicação ficará disponível em `http://localhost:3000`.
-
-### API (json-server)
-
-Para simular uma API, usamos o [json-server](https://github.com/typicode/json-server), com os dados armazenados no arquivo `data/api.json`.
-
-Para iniciar a API fake:
-
-```bash
-pnpm install -g json-server
-
-# Rode o json-server apontando para o arquivo de dados
-json-server --watch data/api.json --port 3001
-```
-
-A API ficará acessível em `http://localhost:3001`.
-
-## Entrega
-
-O foco aqui não é acertar tudo "de primeira", mas sim demonstrar **como você pensa, organiza e estrutura seu trabalho**. Por isso, sinta-se livre para fazer refatorações, quebrar componentes, ajustar estruturas ou até mudar o que achar necessário.
-
-O importante é entregar um sistema funcional, com código limpo, coeso e fácil de evoluir.
