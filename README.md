@@ -1,4 +1,11 @@
 # Studio Flow - Solução do Teste Técnico 🚀
+<p align="center">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Globo_logo_and_wordmark.svg/960px-Globo_logo_and_wordmark.svg.png" width="100" style="margin-left: 48px" />
+</p>
+<p align="center">
+  <img src="https://www.noesis.pt/-/media/Project/Noesis/Site/brand/logo.svg?iar=0&hash=8BE9FEC81E94CF0B07FE787047937623&hash=8BE9FEC81E94CF0B07FE787047937623" width="170" />&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://i.ibb.co/SPGby68/jordanio.png" width="150" />
+</p>
 
 Este repositório contém a minha solução para o **Teste Técnico Studio Flow**.
 
