@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import {
@@ -42,9 +42,11 @@ const Studio = () => {
     navigate('/');
   };
 
-  if (!selectedProduction) {
-    selectProductionById(id as string);
+  useEffect(() => {
+  if (!selectedProduction && id) {
+    selectProductionById(id);
   }
+}, [selectedProduction, id, selectProductionById]);
 
   const handleDragStart = (event: DragStartEvent) => {
     const { active } = event;
